@@ -1,4 +1,4 @@
-module devian2011/go_basic_extension
+module github.com/devian2011/go_basic_extension
 
 go 1.18
 
