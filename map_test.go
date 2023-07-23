@@ -1,8 +1,9 @@
 package go_basic_extension
 
 import (
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestMap_GetOrDefault(t *testing.T) {
