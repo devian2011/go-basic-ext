@@ -1,5 +1,11 @@
 package go_basic_extension
 
+import (
+	"crypto/sha256"
+	"fmt"
+	"strings"
+)
+
 type Array []any
 
 func (a *Array) Contains(v any) bool {
@@ -46,4 +52,14 @@ func NonIntersection[T comparable](f, s []T) []T {
 	}
 
 	return result
+}
+
+// HashSlice return sha256 hash of array
+func HashSlice(i []any) string {
+	b := strings.Builder{}
+	for _, v := range i {
+		b.WriteString(fmt.Sprintf("%v", v))
+	}
+
+	return string(sha256.New().Sum([]byte(b.String())))
 }
