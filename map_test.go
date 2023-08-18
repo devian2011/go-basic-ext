@@ -7,7 +7,7 @@ import (
 )
 
 func TestMap_GetOrDefault(t *testing.T) {
-	m := Map{"one": "oneV", "two": "twoV"}
+	m := Map[string, string]{"one": "oneV", "two": "twoV"}
 
 	oneVal := m.GetOrDefault("one", "defVal")
 	defVal := m.GetOrDefault("defCall", "defVal")
@@ -17,7 +17,7 @@ func TestMap_GetOrDefault(t *testing.T) {
 }
 
 func TestMap_Get(t *testing.T) {
-	m := Map{"one": "oneV", "two": "twoV"}
+	m := Map[string, string]{"one": "oneV", "two": "twoV"}
 
 	oneVal, oneVErr := m.Get("one")
 	twoVal, twoVErr := m.Get("two")
@@ -30,11 +30,11 @@ func TestMap_Get(t *testing.T) {
 	assert.Nil(t, twoVErr)
 
 	assert.Equal(t, ErrValueForKeyNotExists, emVErr)
-	assert.Nil(t, emV)
+	assert.Empty(t, emV)
 }
 
 func TestMap_KeyExists(t *testing.T) {
-	m := Map{"one": "oneV", "two": "twoV"}
+	m := Map[string, string]{"one": "oneV", "two": "twoV"}
 
 	assert.True(t, m.KeyExists("one"))
 	assert.False(t, m.KeyExists("three"))

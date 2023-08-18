@@ -6,9 +6,9 @@ import (
 	"strings"
 )
 
-type Array []any
+type Array[T comparable] []T
 
-func (a *Array) Contains(v any) bool {
+func (a *Array[T]) Contains(v T) bool {
 	for _, r := range *a {
 		if r == v {
 			return true
@@ -18,7 +18,7 @@ func (a *Array) Contains(v any) bool {
 	return false
 }
 
-func (a *Array) NotContains(v any) bool {
+func (a *Array[T]) NotContains(v T) bool {
 	return !a.Contains(v)
 }
 

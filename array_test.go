@@ -7,13 +7,14 @@ import (
 )
 
 func TestArray_Contains(t *testing.T) {
-	a := Array{"one", "two"}
+	a := Array[string]([]string{"a", "b"})
+
 	assert.True(t, a.Contains("two"))
 	assert.False(t, a.Contains("three"))
 }
 
 func TestArray_NotContains(t *testing.T) {
-	a := Array{"one", "two"}
+	a := Array[string]([]string{"one", "two"})
 	assert.False(t, a.NotContains("two"))
 	assert.True(t, a.NotContains("three"))
 }
