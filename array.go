@@ -55,11 +55,13 @@ func NonIntersection[T comparable](f, s []T) []T {
 }
 
 // HashSlice return sha256 hash of array
-func HashSlice(i []any) string {
+func HashSlice[T any](i []T) string {
 	b := strings.Builder{}
 	for _, v := range i {
 		b.WriteString(fmt.Sprintf("%v", v))
 	}
+	hash := sha256.New()
+	hash.Write([]byte(b.String()))
 
-	return string(sha256.New().Sum([]byte(b.String())))
+	return fmt.Sprintf("%x", hash.Sum(nil))
 }

@@ -18,17 +18,29 @@ func TestArray_NotContains(t *testing.T) {
 	assert.True(t, a.NotContains("three"))
 }
 
-func Test_Intersection(t *testing.T) {
+func TestIntersection(t *testing.T) {
 	first := []int{1, 2, 3, 4, 5, 6}
 	second := []int{3, 6, 10, -1, 12}
 
 	assert.Equal(t, []int{3, 6}, Intersection[int](first, second))
 }
 
-func Test_NonIntersection(t *testing.T) {
+func TestNonIntersection(t *testing.T) {
 	first := []int{1, 2, 3, 4, 5, 6}
 	second := []int{3, 6, 10, -1, 12}
 
 	assert.Equal(t, []int{1, 2, 4, 5}, NonIntersection[int](first, second))
 	assert.Equal(t, []int{10, -1, 12}, NonIntersection[int](second, first))
+}
+
+func TestHashSlice(t *testing.T) {
+	type one struct {
+		id  int
+		val string
+	}
+
+	i := []one{{1, "hello"}, {2, "world"}}
+	expected := "b7773808530d09cac59dc5b4720b868cadb25285162096c164dfbe60820402f4"
+
+	assert.Equal(t, expected, HashSlice(i))
 }
