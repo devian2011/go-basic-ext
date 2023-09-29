@@ -18,6 +18,18 @@ func (a *Array[T]) Contains(v T) bool {
 	return false
 }
 
+func (a *Array[T]) Unique() Array[T] {
+	result := Array[T]{}
+	keys := make(map[T]interface{}, len(*a))
+	for _, v := range *a {
+		if _, exists := keys[v]; !exists {
+			result = append(result, v)
+		}
+	}
+
+	return result
+}
+
 func (a *Array[T]) NotContains(v T) bool {
 	return !a.Contains(v)
 }
