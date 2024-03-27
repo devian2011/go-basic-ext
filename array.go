@@ -23,6 +23,7 @@ func (a *Array[T]) Unique() Array[T] {
 	keys := make(map[T]interface{}, len(*a))
 	for _, v := range *a {
 		if _, exists := keys[v]; !exists {
+			keys[v] = true
 			result = append(result, v)
 		}
 	}

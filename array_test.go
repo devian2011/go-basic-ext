@@ -45,3 +45,10 @@ func TestHashSlice(t *testing.T) {
 
 	assert.Equal(t, expected, HashSlice(i))
 }
+
+func TestArray_Unique(t *testing.T) {
+	input := Array[int]([]int{1, 1, 2, 3, 4, 4, 5})
+	expected := Array[int]([]int{1, 2, 3, 4, 5})
+
+	assert.Equal(t, expected, input.Unique())
+}
