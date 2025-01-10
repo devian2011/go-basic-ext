@@ -8,6 +8,15 @@ import (
 
 type Array[T comparable] []T
 
+func (a *Array[T]) Reverse() map[T]int {
+	result := make(map[T]int, len(*a))
+	for k, v := range *a {
+		result[v] = k
+	}
+
+	return result
+}
+
 func (a *Array[T]) Contains(v T) bool {
 	for _, r := range *a {
 		if r == v {
